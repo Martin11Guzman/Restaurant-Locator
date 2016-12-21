@@ -48,10 +48,11 @@ def search(url):
                 "div", {"itemprop": "telephone"})[0].text)
         except:
             pass
-        print(business_name)
-        print(street_Address)
-        print(address_locality)
-        print(address_Region)
-        print(postal_code)
-        print(Primary)
-    return "success"
+        return {
+            'business-name': business_name,
+            'streetAddress': street_Address,
+            'addressLocality': address_locality,
+            'addressRegion': address_Region,
+            'postalCode': postal_code,
+            'telephone': Primary,
+        }
