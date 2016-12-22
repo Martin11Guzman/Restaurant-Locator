@@ -2,6 +2,8 @@ import requests
 
 from bs4 import BeautifulSoup
 
+businesses = []
+
 
 def search(url):
     r = requests.get(url)
@@ -48,11 +50,12 @@ def search(url):
                 "div", {"itemprop": "telephone"})[0].text)
         except:
             pass
-        return {
+        businesses.append({
             'business-name': business_name,
             'streetAddress': street_Address,
             'addressLocality': address_locality,
             'addressRegion': address_Region,
             'postalCode': postal_code,
             'telephone': Primary,
-        }
+        })
+    return businesses

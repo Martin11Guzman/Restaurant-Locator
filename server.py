@@ -14,8 +14,13 @@ def results():
         search_query = request.form["search_query"]
         url = "http://www.yellowpages.com/search?search_terms=restaurants&geo_location_terms={}".format(
             search_query)
-        print(search(url))
-        return render_template('test.html')
+        x = search(url)
+        # num = 0
+        # for businesses in x:
+        #     print(x[num])
+        #     if num != len(x):
+        #         num += 1
+        return render_template('test.html', businesses=x)
     else:
         return render_template('index.html')
 
