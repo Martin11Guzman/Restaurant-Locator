@@ -20,6 +20,7 @@ def results():
         #     print(x[num])
         #     if num != len(x):
         #         num += 1
+
         return render_template('test.html', businesses=x)
     else:
         return render_template('index.html')
